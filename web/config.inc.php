@@ -51,7 +51,22 @@ require_once 'Typecho/Router.php';
 /** 程序初始化 */
 Typecho_Common::init();
 
-/** 定义数据库参数 */
+/** 定义 MySQL 数据库参数 */
+/** 与下方 PgSQL 参数无法共存，请选择一项进行填写
+$db = new Typecho_Db('Pdo_Mysql', 'typecho_');
+$db->addServer(array (
+  'host' => '数据库地址',
+  'user' => '数据库用户名',
+  'password' => '数据库密码',
+  'charset' => 'utf8mb4',
+  'port' => '3306',
+  'database' => '数据库名称',
+  'engine' => 'MyISAM',
+**/
+
+
+/** 定义 PgsSQL 数据库参数 */
+/** 与上方 MySQL 参数无法共存，请选择一项进行填写
 $db = new Typecho_Db('Pdo_Pgsql', 'typecho_');
 $db->addServer(array (
   'host' => '数据库地址',
@@ -60,5 +75,7 @@ $db->addServer(array (
   'charset' => 'utf8',
   'port' => '5432',
   'database' => '数据库名称',
+**/
+
 ), Typecho_Db::READ | Typecho_Db::WRITE);
-Typecho_Db::set($db);
+Typecho_Db::set($db);        

@@ -2,5 +2,14 @@
   "name": "Typecho on Heroku",
   "description": "在 Heroku 上部署基于 PHP + Apache + PostgreSQL 环境的 Typecho。",
   "repository": "https://github.com/typecho-lover/typecho-on-heroku",
-  "addons": []
+  "success_url": "/web/install.php",
+  "addons": [
+    {
+      "plan": "jawsdb-maria:kitefin"
+    },
+    {
+      "plan": "heroku-postgresql:hobby-dev"
+    }
+  ],
+  "stack": "heroku-20"
 }

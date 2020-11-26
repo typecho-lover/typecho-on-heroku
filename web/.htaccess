@@ -1,3 +1,8 @@
+<IfModule mod_rewrite.c>
 RewriteEngine On
+#伪静态
+RewriteBase /
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^ index.php [QSA,L]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /index.php/$1 [L,E=PATH_INFO:$1]
+</IfModule>
